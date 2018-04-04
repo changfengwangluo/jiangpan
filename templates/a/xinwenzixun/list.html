@@ -1,0 +1,95 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN""http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>新闻资讯_响应式生态蔬菜类企业织梦模板(自适应手机端)</title>
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+    <link href="/static/css/style.css" rel="stylesheet" type="text/css"/>
+    <!--[if lt IE 9]>
+<script src="/static/js/css3-mediaqueries.js"></script>
+<script src="/static/js/html5_tag.js"></script>
+<![endif]-->
+    <SCRIPT src="/static/js/jquery-1.4.2.min.js" type="text/javascript"></SCRIPT>
+    <SCRIPT src="/static/js/common.js" type="text/javascript"></SCRIPT>
+    <!--[if lte IE 6]><SCRIPT src="/static/js/iepng.js" type="text/javascript"></SCRIPT>
+<script> 
+EvPNG.fix('div, ul, img, li, input,a,span,nav,article'); 
+</script><![endif]-->
+    <script type="text/javascript" src="/static/js/jquery.lazyload.js"></script>
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/kuvai_style/images/114_logo.png">
+</head>
+<body class="indexBody">
+{% include 'head.htm' %}
+
+<section class="mcur">
+    <div class="wrap">
+        <h1>{{ fenleiinfo.name }}<span>News</span></h1>
+        <h2><span></span>当前位置:<a href='/'>主页</a> > <a href='{% url 'zixunfenlei' fenleiinfo.id %}'>{{ fenleiinfo.name }}</a> > </h2>
+    </div>
+</section>
+<menu class="PageMenuList">
+    <div class="wrap">
+        <ul id="PagemenuClass">
+
+            {% for fenlei in zixunfenlei %}
+            <li><a href='{% url 'zixunfenlei' fenlei.id %}'>{{ fenlei.name }}</a></li>
+
+            {% endfor %}
+
+            <div class="cls"></div>
+        </ul>
+    </div>
+</menu>
+<div class="wrap">
+    <ul class="NewsList" id="NewsList">
+        <div class="MoreCaseBoxCon" id="MoreCaseBoxCon">
+            {% for list in zixunlist %}
+            <li>
+                <p class="t1"><span class="green"></span></p>
+                <h3 class="t2"><a href="{% url 'zixunmingxi' list.id %}"
+                                  title="{{ list.title }}">{{ list.title }}</a></h3>
+                <p class="t3">{{ list.create_time }}</p>
+                <p class="t4"> ■{{ list.content|truncatechars:40 }}</p>
+            </li>
+            {% endfor %}
+        </div>
+        <div class="cls"></div>
+    </ul>
+    <div class="dede_pages">
+        <ul class="pagelist">
+            <li>首页</li>
+            <li class="thisclass">1</li>
+            <li><a href='list_22_2.html'>2</a></li>
+            <li><a href='list_22_3.html'>3</a></li>
+            <li><a href='list_22_4.html'>4</a></li>
+            <li><a href='list_22_2.html'>下一页</a></li>
+            <li><a href='list_22_4.html'>末页</a></li>
+
+        </ul>
+    </div>
+</div>
+</div>
+<div class="about_index_Conlist">
+    {% include 'contact.html' %}
+</div>
+</div>
+<div class="cls"></div>
+</div>
+</div>
+<section class="black_bg_bak">
+    <div class="wrap">
+        {% include 'shear.html' %}
+
+    </div>
+    <script type="text/javascript">
+        var help_cat = '0';
+        var help_mid = '3';
+        var help_ip = '14.145.134.225';
+        var help_url = window.location.href;
+    </script>
+</section>
+{% include 'footer.htm' %}
+</body>
+</html>

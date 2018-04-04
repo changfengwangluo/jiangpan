@@ -19,8 +19,8 @@ class GoodsAdmin(object):
     search_field = ['name','price','imagea']
 
 class FengjingAdmin(object):
-    list_display = ['name']
-    search_field = ['name']
+    list_display = ['name','category']
+    search_field = ['name','category']
 
 class FengjingCategoryAdmin(object):
     list_display = ['name']

@@ -1,0 +1,87 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>产品展示_响应式生态蔬菜类企业织梦模板(自适应手机端)</title>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+<link href="/static/css/style.css" rel="stylesheet" type="text/css" />
+<!--[if lt IE 9]>
+<script src="/static/js/css3-mediaqueries.js"></script>
+<script src="/static/js/html5_tag.js"></script>
+<![endif]-->
+<SCRIPT src="/static/js/jquery-1.4.2.min.js" type="text/javascript"></SCRIPT>
+<SCRIPT src="/static/js/common.js" type="text/javascript"></SCRIPT>
+<!--[if lte IE 6]><SCRIPT src="/static/js/iepng.js" type="text/javascript"></SCRIPT>
+<script> 
+EvPNG.fix('div, ul, img, li, input,a,span,nav,article'); 
+</script><![endif]-->
+<script type="text/javascript" src="/static/js/jquery.lazyload.js"></script>
+</head>
+<body class="indexBody">
+{% include 'head.htm' %}
+
+<section class="mcur">
+  <div class="wrap">
+    <h1>{{ fenleixinxi.name }}<span></span></h1>
+    <h2> <span></span>当前位置: <a href='/'>主页</a> > <a href='{% url 'chanpinfenlei' fenleixinxi.id %}'>{{ fenleixinxi.name }}</a></h2>
+  </div>
+</section>
+<menu class="PageMenuList">
+  <div class="wrap">
+    <ul id="PagemenuClass">
+      
+      {% for fen in fenlei %}
+      <li><a href='{% url 'jingdianfenlei' fen.id %}'>{{ fen.name }}</a></li>
+      {% endfor %}
+      
+      <div class="cls"></div>
+    </ul>
+  </div>
+</menu>
+<h1 style="color: #F60;font-size: 40px; text-align: center;padding: 40px 0px 20px 0px">织梦58精心打造优质高端模板</h1>
+<div class="wrap">
+  <section class="indexCaseList js_check_width_list index_frist_CaseList">
+        {% for jing in jingdian %}
+            <figure class="indexCaseItem">
+                <p>
+                    <img src="{{ jing.imagea.url }}"
+                         width="232" height="170" alt="{{ jing.name }}"/><a href="{% url 'jingdianmingxi' jing.id %}" target='_blank'
+                                                                           class='link'><span>{{ jing.content|truncatechars:'40' }}</span></a>
+                </p>
+                <figcaption>{{ jing.name }}</figcaption>
+            </figure>
+        {% endfor %}
+
+        <div class="cls"></div>
+    </section>
+  <div class="dede_pages">
+    <ul class="pagelist">
+      <li><span class="pageinfo">共 <strong>1</strong>页<strong>10</strong>条记录</span></li>
+
+    </ul>
+  </div>
+</div>
+<div class="about_index_Conlist">
+  {% include 'contact.html' %}
+</div>
+</div>
+<div class="cls"></div>
+</div>
+</div>
+<section class="black_bg_bak">
+<div class="wrap">
+{% include 'shear.html' %}
+
+</div>
+<script type="text/javascript">
+var help_cat = '0';
+var help_mid = '3';
+var help_ip = '14.145.134.225';
+var help_url = window.location.href;
+</script>
+</section>
+{% include 'footer.htm' %}
+</body>
+</html>

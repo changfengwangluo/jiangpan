@@ -40,11 +40,9 @@
                 </li>
                 <li><a href="{% url 'chanpinzhanshi' %}">产品展示<span>Product</span></a>
                     <menu id="aboutNavMenu">
-                        <a href="{% url 'chanpinfenlei' 1 %}" class="AboutNavMenu6">产品一类</a>
-                        <a href="{% url 'chanpinfenlei' 1 %}" class="AboutNavMenu6">产品一类</a>
-                        <a href="{% url 'chanpinfenlei' 1 %}" class="AboutNavMenu6">产品一类</a>
-                        <a href="{% url 'chanpinfenlei' 1 %}" class="AboutNavMenu6">产品一类</a>
-                        <a href="{% url 'chanpinfenlei' 1 %}" class="AboutNavMenu6">产品一类</a>
+                        {% for category in goodscategory %}
+                        <a href="{% url 'chanpinfenlei' category.id %}" class="AboutNavMenu6">{{ category.name }}</a>
+                        {% endfor %}
                     </menu>
                 </li>
                 <li><a href="{% url 'jishupeixun' %}">技术培训<span>Training</span></a>
@@ -55,18 +53,16 @@
                 </li>
                 <li><a href="{% url 'fengguangjingdian' %}">风光景点<span>Attractions</span></a>
                     <menu id="aboutNavMenu">
-                        <a href="{% url 'jingdianmingxi'  %}" class="AboutNavMenu6">景点名</a>
-                        <a href="{% url 'jingdianmingxi'  %}" class="AboutNavMenu6">景点名</a>
-                        <a href="{% url 'jingdianmingxi'  %}" class="AboutNavMenu6">景点名</a>
-                        <a href="{% url 'jingdianmingxi'  %}" class="AboutNavMenu6">景点名</a>
-                        <a href="{% url 'jingdianmingxi'  %}" class="AboutNavMenu6">景点名</a>
+                        {% for jingdian in fengjingfenlei %}
+                        <a href="{% url 'jingdianfenlei' jingdian.id %}" class="AboutNavMenu6">{{ jingdian.name }}</a>
+                        {% endfor %}
                     </menu>
                 </li>
                 <li><a href="{% url 'xinwenzixun'  %}">新闻资讯<span>News</span></a>
                     <menu id="aboutNavMenu">
-                        <a href="{% url 'zixunfenlei' 1 %}" class="AboutNavMenu6">产业新闻</a>
-                        <a href="{% url 'zixunfenlei' 1 %}" class="AboutNavMenu6">媒体报道</a>
-                        <a href="{% url 'zixunfenlei' 1 %}" class="AboutNavMenu6">科普园地</a>
+                        {% for jingdian in zixunfenlei %}
+                        <a href="{% url 'jingdianfenlei' 1 %}" class="AboutNavMenu6">{{ jingdian.name }}</a>
+                        {% endfor %}
                     </menu>
                 </li>
 

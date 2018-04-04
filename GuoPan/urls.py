@@ -14,11 +14,11 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path,include
 import xadmin
 from index import views
-
-
+from django.conf.urls.static import static
+from . import settings
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('xadmin/',xadmin.site.urls),#xadmin后台
@@ -33,7 +33,9 @@ urlpatterns = [
     ###
     ###产品展示
     path('chanpinzhanshi/',views.chanpinzhanshi,name='chanpinzhanshi'),#产品展示
-    path('chanpinfenlei/<int:catefory_id>',views.chanpinfenlei,name='chanpinfenlei'),#产品分类
+    path('chanpinfenlei/<int:category_id>',views.chanpinfenlei,name='chanpinfenlei'),#产品分类
+    path('chanpin/<int:goods_id>',views.chanpin,name='chanpin'),#产品详情
+
     ###技术培训
     path('jishupeixun/',views.jishupeixun,name='jishupeixun'),#技术培训
     path('peixunmingxi/',views.peixunmingxi,name='peixunmingxi'),#培训明细
@@ -43,15 +45,20 @@ urlpatterns = [
 
     ###风光景点
     path('fengguangjingdian/',views.fengguangjingdian,name='fengguangjingdian'),#风光景点
-    path('jingdianmingxi/',views.jingdianmingxi,name='jingdianmingxi'),#景点明细
+    path('jingdianfenlei/<int:category_id>',views.jingdianfenlei,name='jingdianfenlei'),#景点分类
+    path('jingdianmingxi/<int:jingdian_id>',views.jingdianmingxi,name='jingdianmingxi'),#景点明细
 
     ###新闻资讯
     path('xinwenzixun/', views.xinwenzixun, name='xinwenzixun'),  # 新闻资讯
-    path('zixunfenlei/<int:category_id>', views.zixuncategory, name='zixunfenlei'),  # zixunfenlei
+    path('zixuncategory/<int:category_id>', views.zixuncategory, name='zixunfenlei'),  # zixunfenlei
     path('zixunmingxi/<int:article_id>', views.zixunmingxi, name='zixunmingxi'),  # 资讯明细
 
-
+    #ckeditor上传路径
+    path('ckeditor',include('ckeditor_uploader.urls')),
 
 
 
 ]
+#添加media文件路径访问
+urlpatterns+=static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
+

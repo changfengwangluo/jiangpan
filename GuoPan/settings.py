@@ -43,7 +43,9 @@ INSTALLED_APPS = [
     'reversion',
 
     'index',
-    'company'
+    'company',
+    
+    'ckeditor'
 ]
 
 MIDDLEWARE = [
@@ -61,7 +63,7 @@ ROOT_URLCONF = 'GuoPan.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR,'templates')],
+        'DIRS': [os.path.join(BASE_DIR,'templates')],#指向templates目录
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -115,7 +117,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/2.0/topics/i18n/
 
-LANGUAGE_CODE = 'zh-Hans'
+LANGUAGE_CODE = 'zh-hans'
 
 TIME_ZONE = 'Asia/Shanghai'
 
@@ -141,4 +143,10 @@ STATICFILES_DIRS=[
 
 sys.path.insert(0,os.path.join(BASE_DIR,'extra_apps'))
 
+#配置媒体文件路径
 MEDIA_URL='/media/'
+MEDIA_ROOT=os.path.join(BASE_DIR,'media')
+
+#ckeditor上传路径
+CKEDITOR_UPLOAD_PATH='upload/'
+

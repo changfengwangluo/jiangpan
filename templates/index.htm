@@ -56,7 +56,7 @@ EvPNG.fix('div, ul, img, li, input,a,span,nav,article');
             <li><span>3</span>达成合作</li>
             <div class="cls"></div>
         </ul>
-        <a href="http://wpa.qq.com/msgrd?v=3&uin=1234567&site=qq&menu=yes" target="_blank" class="OA" title="在线客服"
+        <a href="http://wpa.qq.com/msgrd?v=3&uin=837615188&site=qq&menu=yes" target="_blank" class="OA" title="在线客服"
            rel="nofollow"></a></div>
 </div>
 <section class="indexaboutBox">
@@ -75,11 +75,11 @@ EvPNG.fix('div, ul, img, li, input,a,span,nav,article');
     <section class="indexCase" style="padding-bottom:40px;padding-top:10px">
         <div class="wrap">
             <div class="title">
-                <h1><a href="[field:typelink/]" target="_blank">产品展示<span>To view more+</span></a></h1>
+                <h1><a href="{% url 'chanpinzhanshi' %}" target="_blank">产品展示<span>To view more+</span></a></h1>
 
                 <menu>
                     {% for category in goodscategory %}
-                    <a href="{% url 'chanpinfenlei' category.pk %}" title="">{{ category.name }}</a>
+                    <a href="{% url 'chanpinfenlei' category.id %}" title="">{{ category.name }}</a>
                     {% endfor %}
                 </menu>
                 <div class="cls"></div>
@@ -88,8 +88,8 @@ EvPNG.fix('div, ul, img, li, input,a,span,nav,article');
                 {% for good in goods %}
                 <figure class="indexCaseItem">
                     <p>
-                        <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1522217550455&di=2ae61091e046347d437da5c8ef6c0ae6&imgtype=0&src=http%3A%2F%2Fimage.lssp.com%2F11148943%2Fimages%2F201802281046446706.jpg"
-                             width="232" height="170" alt="[field:title/]"/><a href="[field:arcurl/]" target='_blank'
+                        <img src="{{ good.imagea.url }}"
+                             width="232" height="170" alt="{{ good.name }}"/><a href="{% url 'chanpin' good.id %}" target='_blank'
                                                                                class='link'><span>{{ good.content|truncatechars:'40' }}</span></a>
                     </p>
                     <figcaption>{{ good.name }}</figcaption>
@@ -103,11 +103,11 @@ EvPNG.fix('div, ul, img, li, input,a,span,nav,article');
     <section class="indexCase" style="padding-bottom:40px;padding-top:10px">
         <div class="wrap">
             <div class="title">
-                <h1><a href="[field:typelink/]" target="_blank">风光景点<span>To view more+</span></a></h1>
+                <h1><a href="{% url 'fengguangjingdian' %}" target="_blank">风光景点<span>To view more+</span></a></h1>
 
                 <menu>
                     {% for fenlei in fengjingfenlei %}
-                    <a href="{% url 'fengguangjingdian' %}" title="">{{ fenlei.name }}</a>
+                    <a href="{% url 'jingdianfenlei' fenlei.id %}" title="">{{ fenlei.name }}</a>
                     {% endfor %}
                 </menu>
                 <div class="cls"></div>
@@ -116,8 +116,8 @@ EvPNG.fix('div, ul, img, li, input,a,span,nav,article');
                 {% for feng in fengjing %}
                 <figure class="indexCaseItem">
                     <p>
-                        <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1522217550455&di=2ae61091e046347d437da5c8ef6c0ae6&imgtype=0&src=http%3A%2F%2Fimage.lssp.com%2F11148943%2Fimages%2F201802281046446706.jpg"
-                             width="232" height="170" alt="[field:title/]"/><a href="[field:arcurl/]" target='_blank'
+                        <img src="{{ feng.imagea.url }}"
+                             width="232" height="170" alt="{{ feng.name }}"/><a href="" target='_blank'
                                                                                class='link'><span>{{ feng.content|truncatechars:'40' }}</span></a>
                     </p>
                     <figcaption>{{ feng.name }}</figcaption>
@@ -135,7 +135,7 @@ EvPNG.fix('div, ul, img, li, input,a,span,nav,article');
                  style="border-bottom:1px solid #ddd; height:0px; overflow:hidden; margin-top:20px;padding-top:15px"></div>
             <section class="indexNewsBlock">
                 <div class="title">
-                    <h1><a href="[field:typelink/]">产业新闻<span>To view more+</span></a></h1>
+                    <h1><a href="{% url 'zixunfenlei' chanyeid %}">产业新闻<span>To view more+</span></a></h1>
 
                     <div class="cls"></div>
                     <span class="border"></span></div>
@@ -150,7 +150,7 @@ EvPNG.fix('div, ul, img, li, input,a,span,nav,article');
             </section>
             <section class="indexNewsBlock indexNewsBlockC">
                 <div class="title">
-                    <h1><a href="[field:typelink/]">媒体报道<span>To view more+</span></a></h1>
+                    <h1><a href="{% url 'zixunfenlei' meitiid %}">媒体报道<span>To view more+</span></a></h1>
 
                     <div class="cls"></div>
                     <span class="border"></span></div>
@@ -164,7 +164,7 @@ EvPNG.fix('div, ul, img, li, input,a,span,nav,article');
             </section>
             <section class="indexNewsBlock indexNewsBlockLast">
                 <div class="title">
-                    <h1><a href="[field:typelink/]">科普园地<span>To view more+</span></a></h1>
+                    <h1><a href="{% url 'zixunfenlei' kepuid %}">科普园地<span>To view more+</span></a></h1>
 
                     <div class="cls"></div>
                     <span class="border"></span></div>
@@ -194,7 +194,7 @@ EvPNG.fix('div, ul, img, li, input,a,span,nav,article');
                             <p>
                                 <a title="[field:title/]" target="_blank">
                                     <img original=""
-                                         src="{{ menber.image }}"
+                                         src="{{ menber.image.url }}"
                                          width="170" height="123"/>
                                 </a>
                             </p>
@@ -218,7 +218,7 @@ EvPNG.fix('div, ul, img, li, input,a,span,nav,article');
                         {% for rong in rongyu %}
                         <figure class="indexHonorItem">
                             <p><a title="[field:title/]" target="_blank"><img original=""
-                                                                              src="{{ rong.image }}"
+                                                                              src="{{ rong.image.url }}"
                                                                               width="170" height="123"/></a></p>
                             <figcaption><a title="[field:title/]">{{ rong.name }}</a></figcaption>
                         </figure>
